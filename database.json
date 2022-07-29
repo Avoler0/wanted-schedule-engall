@@ -1,0 +1,67 @@
+{
+  "schedule": [
+    {
+      "week": "2022-07-25~2022-07-31",
+      "day": "Tuesday",
+      "startTime": "11:00 AM",
+      "endTime": "11:40 AM",
+      "id": 1
+    },
+    {
+      "week": "2022-07-25~2022-07-31",
+      "day": "Monday",
+      "startTime": "4:00 PM",
+      "endTime": "4:40 PM",
+      "id": 3
+    },
+    {
+      "week": "2022-07-25~2022-07-31",
+      "day": "Thursday",
+      "startTime": "6:00 AM",
+      "endTime": "6:40 AM",
+      "id": 4
+    },
+    {
+      "week": "2022-07-25~2022-07-31",
+      "day": "Thursday",
+      "startTime": "6:00 PM",
+      "endTime": "6:40 PM",
+      "id": 5
+    },
+    {
+      "week": "2022-07-25~2022-07-31",
+      "day": "Wednesday",
+      "startTime": "2:00 PM",
+      "endTime": "2:40 PM",
+      "id": 6
+    },
+    {
+      "week": "2022-07-25~2022-07-31",
+      "day": "Friday",
+      "startTime": "11:00 PM",
+      "endTime": "11:40 PM",
+      "id": 7
+    },
+    {
+      "week": "2022-07-25~2022-07-31",
+      "day": "Monday",
+      "startTime": "12:00 PM",
+      "endTime": "12:40 PM",
+      "id": 18
+    },
+    {
+      "week": "2022-07-25~2022-07-31",
+      "day": "Tuesday",
+      "startTime": "12:00 PM",
+      "endTime": "12:40 PM",
+      "id": 19
+    },
+    {
+      "week": "2022-07-25~2022-07-31",
+      "day": "Monday",
+      "startTime": "1:00 PM",
+      "endTime": "1:40 PM",
+      "id": 21
+    }
+  ]
+}
