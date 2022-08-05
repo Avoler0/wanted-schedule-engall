@@ -1,4 +1,4 @@
-# wanted-3team-ad-platform
+# wanted-junyunseo
 
 ## Commit convention
 
