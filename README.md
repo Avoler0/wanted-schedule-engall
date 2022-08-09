@@ -14,3 +14,11 @@
 | rename   | 파일 혹은 폴더명 수정, 옮기는 작업만 한 경우 |
 | remove   | 파일 삭제                                    |
 | init     | 프로젝트 초기 설정                           |
+
+# 실행 방법
+
+```
+npm install 을 실행하며 설치하여줍니다.
+```
+```
+npm run dev -> npm run server
