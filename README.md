@@ -17,12 +17,31 @@
 
 # 실행 방법
 
+1. 프로젝트 클론
 ```
-npm install 을 실행하며 설치하여줍니다.
+git clone https://github.com/Avoler0/wanted-schedule-engall.git
 ```
+
+2. 패키지 설치
+
 ```
-npm run dev 을 실행하여 웹을 실행해주고
+npm install
 ```
+
+3. json server 실행
+
 ```
-npm run server 로 서버를 실행해주시면 됩니다.
+npm run server
 ```
+
+4. 개발 서버 실행
+
+```
+npm run dev
+```
+
+# 메인 페이지
+![image](https://user-images.githubusercontent.com/91608021/183663072-b70c08b0-4086-4a73-8d38-3e336f6bbafb.png)
+
+- [x] 일 별로 목록 추가
+- [x]
