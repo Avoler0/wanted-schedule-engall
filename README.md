@@ -21,4 +21,8 @@
 npm install 을 실행하며 설치하여줍니다.
 ```
 ```
-npm run dev -> npm run server
+npm run dev 을 실행하여 웹을 실행해주고
+```
+```
+npm run server 로 서버를 실행해주시면 됩니다.
+```
