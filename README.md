@@ -50,4 +50,13 @@ npm run dev
 ![image](https://user-images.githubusercontent.com/91608021/183818704-5ea701e0-a76a-4beb-ad90-b70239eb970e.png)
 - [x] hours minutes , AM PM , 요일을 지정하여 Save 버튼 클릭 시 json-server로 데이터를 보냄
 - [x] json-server로 보낸 데이터는 date 객체가 아닌 string 객체입니다
+```
+    {
+      "week": "2022-07-25~2022-07-31",
+      "day": "Tuesday",
+      "startTime": "11:00 AM",
+      "endTime": "11:40 AM",
+      "id": 1
+    },
+```
 - [x] 아무 입력 없을 시 00 시 00분 , 월요일으로 저장합니다.
