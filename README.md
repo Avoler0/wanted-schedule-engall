@@ -44,4 +44,10 @@ npm run dev
 ![image](https://user-images.githubusercontent.com/91608021/183663072-b70c08b0-4086-4a73-8d38-3e336f6bbafb.png)
 
 - [x] 일 별로 목록 추가
-- [x]
+- [x] json-server에 저장한 데이터를 요일별로 출력
+
+# 스케줄 추가 페이지
+![image](https://user-images.githubusercontent.com/91608021/183818704-5ea701e0-a76a-4beb-ad90-b70239eb970e.png)
+- [x] hours minutes , AM PM , 요일을 지정하여 Save 버튼 클릭 시 json-server로 데이터를 보냄
+- [x] json-server로 보낸 데이터는 date 객체가 아닌 string 객체입니다
+- [x] 아무 입력 없을 시 00 시 00분 , 월요일으로 저장합니다.
