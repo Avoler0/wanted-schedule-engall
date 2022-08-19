@@ -1,6 +1,5 @@
 import { Query, StartTime } from '../types/types';
-import { minutes } from './../const/const';
-import { addDays, addMinutes, format, set, setHours, setMinutes, startOfWeek } from "date-fns";
+import { addDays, addMinutes, format, setHours, setMinutes, startOfWeek } from "date-fns";
 import React from "react";
 import { Schedule } from "./axiosInstance";
 

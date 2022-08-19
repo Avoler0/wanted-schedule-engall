@@ -13,6 +13,10 @@ export default function AddChedule({setTableState}:any) {
   const [minuteValue,setMinuteValue] = React.useState("00");
   const [dayValue,setDayValue] = React.useState<Day | string>("Monday");
   const {postSchedule,getSchedule} = useSchedule();
+  const neda =  new Date(2022,8+1,19,24,11)
+  const neew = new Date(neda.getTime())
+  // new Date(new Date().getFullYear(),day,new Date().getMonth()+1,hours,minute)
+  console.log(new Date().getMonth())
 
   const setDropClick = (event:any) => {
     const minute = event.target.innerText;
