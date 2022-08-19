@@ -1,4 +1,4 @@
-# wanted-3team-ad-platform
+# wanted-junyunseo
 
 ## Commit convention
 
@@ -15,13 +15,49 @@
 | remove   | 파일 삭제                                    |
 | init     | 프로젝트 초기 설정                           |
 
-## 계획
+# 실행 방법
 
-- **대시보드**
-  ![ad platform 기획 001](https://user-images.githubusercontent.com/77876601/178675841-b05b49d6-6f5f-488c-8aa8-a97f831d7282.jpeg)
+1. 프로젝트 클론
+```
+git clone https://github.com/Avoler0/wanted-schedule-engall.git
+```
 
-- **광고관리**
-  ![ad platform 기획 003](https://user-images.githubusercontent.com/77876601/178675860-26c007c9-9d05-44bc-8296-f880b6664f22.jpeg)
+2. 패키지 설치
 
-- **모바일 드롭다운 메뉴**
-  ![ad platform 기획 002](https://user-images.githubusercontent.com/77876601/178675856-43045e16-b9ba-40a9-bf61-bce15cff82a6.jpeg)
+```
+npm install
+```
+
+3. json server 실행
+
+```
+npm run server
+```
+
+4. 개발 서버 실행
+
+```
+npm run dev
+```
+
+# 메인 페이지
+![image](https://user-images.githubusercontent.com/91608021/183663072-b70c08b0-4086-4a73-8d38-3e336f6bbafb.png)
+
+- [x] 일 별로 목록 추가
+- [x] json-server에 저장한 데이터를 요일별로 출력
+
+# 스케줄 추가 페이지
+![image](https://user-images.githubusercontent.com/91608021/183818704-5ea701e0-a76a-4beb-ad90-b70239eb970e.png)
+- [x] hours minutes , AM PM , 요일을 지정하여 Save 버튼 클릭 시 json-server로 데이터를 보냄
+- [x] json-server로 보낸 데이터는 date 객체가 아닌 string 객체입니다
+```
+    {
+      "week": "2022-07-25~2022-07-31",
+      "day": "Tuesday",
+      "startTime": "11:00 AM",
+      "endTime": "11:40 AM",
+      "id": 1
+    },
+```
+- [x] 아무 입력 없을 시 00 시 00분 , 월요일으로 저장합니다.
+- [x] AM PM 단위로 나누어 시간을 전달 할 때 PM일 시 12시간을 추가하여 2시로 작성하였을 경우 17시 , 17시로 작성하면 동일하게 저장합니다.
