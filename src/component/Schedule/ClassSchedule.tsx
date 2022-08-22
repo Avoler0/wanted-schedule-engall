@@ -1,4 +1,5 @@
-import React, { useCallback } from "react";
+import { format } from "date-fns";
+import React from "react";
 import styled from "styled-components"
 import { days } from "../../const/const";
 import useSchedule from "../../hook/useSchedule";
@@ -10,9 +11,8 @@ export default function ClassSchedule() {
   const {scheduleData,getSchedule,getSelectWeek,deleteSchedule,deleteState} = useSchedule();
   const [modalState,setModalState] = React.useState(false);
   const [modalDelete,setModalDelete] = React.useState<boolean | null>(null);
-  const [deleteId,setDeleteId] = React.useState<number|null>(null)
+  const [deleteId,setDeleteId] = React.useState<number>(0)
 
-  
   const clickDeleteSchedule = (id:number) => {
     setDeleteId(id)
     setModalState(true)
@@ -21,6 +21,7 @@ export default function ClassSchedule() {
   React.useEffect(()=>{
     const selectWeek = getSelectWeek()
     getSchedule(selectWeek)
+    console.log(scheduleData);
   },[])
 
   React.useEffect(()=>{
@@ -44,11 +45,16 @@ export default function ClassSchedule() {
           <span>{day}</span>
             <BoardWrap>
               {scheduleData && scheduleData.map((schedule:SchedulType)=>{
+              const date = new Date(schedule.startTime)
+              const startM = Number(format(new Date(schedule.startTime),"HH"))
+              const endM = Number(format(new Date(schedule.startTime),"HH"))
+              console.log(date,typeof startM);
+              
             if(schedule.day === `${day}`){
               return (
                 <Board key={`${schedule.id}`} >
-                  <div>{schedule.startTime} - </div>
-                  <div>{schedule.endTime}</div>
+                  <div>{format(new Date(schedule.startTime),"hh-mm")} {startM <= 11 ? "AM" : "PM"} - </div>
+                  <div>{format(new Date(schedule.endTime),"hh-mm")} {endM <= 11 ? "AM" : "PM"}</div>
                   <img src={XButton} onClick={() => {clickDeleteSchedule(schedule.id)} } />
                 </Board>
               )

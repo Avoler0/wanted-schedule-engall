@@ -15,7 +15,6 @@ export default function ModalJSX({setModalState,setModalDelete}){
       <Wrap>
         <ContentWrap>
           <Title>정말로 삭제하시겠습니까 ?</Title>
-        
         </ContentWrap>
         <ButtonWrap>
           <Button onClick={ModalOk}>확인</Button>

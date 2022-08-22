@@ -1,14 +1,6 @@
 export type AMPM = ""|"AM" | "PM";
 export type Day = "Monday"|"Tuesday"|"Wednesday"|"Thursday"|"Friday"|"Saturday"|"Sunday";
-export interface Query {
-  keys(): any;
-  startTime:{
-    hour:string,
-    minute:string,
-    ampm:string
-  },
-  day:string
-}
+
 export interface StartTime {
   hour: number,
   minute:number,
@@ -20,5 +12,12 @@ export interface SchedulType {
   startTime:string,
   endTime:string,
   id:number
+}
+interface timesType{
+  year:number,
+  month:number,
+  hour:number,
+  minute:number,
+  day:string,
 }
 export type tableType = "ClassSchedule" | "AddSchedule";

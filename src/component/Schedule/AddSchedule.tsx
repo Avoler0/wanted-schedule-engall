@@ -1,71 +1,58 @@
+import { timesType } from "../../types/types";
 import React, { useEffect } from "react";
 import styled from "styled-components"
-import { days, minutes } from "../../const/const";
+import { days, daysNum, minutes } from "../../const/const";
 import useSchedule from "../../hook/useSchedule";
-import { AMPM, Query } from "../../types/types";
+import { AMPM } from "../../types/types";
 
 
 export default function AddChedule({setTableState}:any) {
-  const [query,setQuery] = React.useState<Query | null>(null);
   const [ampm,setAmPm] = React.useState<AMPM>("AM")
   const [minuteDrop , setMinuteDrop] = React.useState(false as boolean);
-  const hourRef = React.useRef("");
+  const [hourValue,setHourValue] = React.useState<string>('');
   const [minuteValue,setMinuteValue] = React.useState("00");
   const [dayValue,setDayValue] = React.useState<Day | string>("Monday");
-  const {postSchedule,getSchedule} = useSchedule();
-  const neda =  new Date(2022,8+1,19,24,11)
-  const neew = new Date(neda.getTime())
-  // new Date(new Date().getFullYear(),day,new Date().getMonth()+1,hours,minute)
-  console.log(new Date().getMonth())
-
+  const {postSchedule} = useSchedule();
+  const times:timesType = {
+    year: new Date().getFullYear(),
+    month: new Date().getMonth(),
+    hour:0,
+    minute:Number(minuteValue),
+    day:dayValue
+  }
+  const setHourTime = () => { 
+    times.hour = ampm === "PM" ? Number(hourValue)+12 : Number(hourValue)
+  }
   const setDropClick = (event:any) => {
     const minute = event.target.innerText;
     setMinuteValue(minute)
     setMinuteDrop(false)
   }
-  const onChangeHour = () => {
-    setHourAmPM()
-  }
-  const setHourAmPM = () => {
-    const hour = hourRef.current.value
-    if(hour > 12) {
-      hourRef.current.value = 12;
-    }
-    if(ampm === "PM"){
-      if(hour > 11) hourRef.current.value = 11
-    }
-  }
-  const setAmPmState = (event) => {
-    const value = event.target.innerText;
-    setAmPm(value)
-    if(value === "PM"){
-      if(hourRef.current.value > 11) hourRef.current.value = 11;
-    }
-
-  }
   const saveData = () => {
-    setQuery({
-      startTime:{
-        hour: ampm === "AM" ? hourRef.current.value : Number(hourRef.current.value) + 12 ,
-        minute:minuteValue,
-        ampm:ampm,
-      },
-      day:dayValue
-    })
+    setHourTime();
+    
+
+    postQuery(times)
+  }
+  
+  const postQuery = (query:any) => {
+    postSchedule(query)
+    // setTableState("ClassSchedule")
+  }
+  const hourValidation = () => {
+    if(ampm === "PM" && Number(hourValue) >= 11){
+      if(Number(hourValue) === 12){
+        alert("저녘 11시 이후로는 설정이 불가능 합니다.")
+        setHourValue(11);
+      }else if(minuteValue !== "00"){
+        alert("저녘 11시 이후로는 설정이 불가능 합니다.")
+        setMinuteValue("00");
+      }
+    } 
   }
   useEffect(()=>{
-    if(query !== null){
-      postSchedule(query)
-      setTableState("ClassSchedule")
-    }
-  },[query])
-  
-  useEffect(()=>{
-    if(hourRef.current.value === "11" && ampm === "PM"){
-      setMinuteValue("00")
-    }
-  },[hourRef.current.value,minuteValue,ampm])
-   
+    hourValidation()
+  },[hourValue,minuteValue,ampm])
   return (
     <>
       <Container>
@@ -77,7 +64,7 @@ export default function AddChedule({setTableState}:any) {
             <Time id="time">
               <TimeBox>
                 <form >
-                  <input ref={hourRef} onChange={() => onChangeHour()} placeholder="00"/>
+                  <input  onChange={(event) => setHourValue(event.target.value)} value={hourValue} placeholder="00"/>
                 </form>
               </TimeBox>
               <Colon>:</Colon>
@@ -87,8 +74,8 @@ export default function AddChedule({setTableState}:any) {
               </DropBox>
             </Time>
             <SelectTime>
-              <TimeButton onClick={(event) => setAmPmState(event)} style={ ampm === "AM" ? { backgroundColor: "rgb(149,149,149)" , color:"#fff"} :null} >AM</TimeButton>
-              <TimeButton onClick={(event) => setAmPmState(event)} style={ ampm === "PM" ? { backgroundColor: "rgb(149,149,149)" , color:"#fff"} :null} >PM</TimeButton>
+              <TimeButton onClick={() => setAmPm("AM")} style={ ampm === "AM" ? { backgroundColor: "rgb(149,149,149)" , color:"#fff"} :null} >AM</TimeButton>
+              <TimeButton onClick={() => setAmPm("PM")} style={ ampm === "PM" ? { backgroundColor: "rgb(149,149,149)" , color:"#fff"} :null} >PM</TimeButton>
             </SelectTime>
           </Element>
         </StartTime>
