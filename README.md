@@ -49,7 +49,7 @@ npm run dev
 # 스케줄 추가 페이지
 ![image](https://user-images.githubusercontent.com/91608021/183818704-5ea701e0-a76a-4beb-ad90-b70239eb970e.png)
 - [x] hours minutes , AM PM , 요일을 지정하여 Save 버튼 클릭 시 json-server로 데이터를 보냄
-- [x] json-server로 보낸 데이터는 date 객체가 아닌 string 객체입니다
+- [x] json-server로 보낸 데이터는 date 객체로 저장되어 관리 합니다.
 ```
     {
       "week": "2022-08-22~2022-08-28",
