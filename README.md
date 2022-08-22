@@ -52,10 +52,10 @@ npm run dev
 - [x] json-server로 보낸 데이터는 date 객체가 아닌 string 객체입니다
 ```
     {
-      "week": "2022-07-25~2022-07-31",
-      "day": "Tuesday",
-      "startTime": "11:00 AM",
-      "endTime": "11:40 AM",
+      "week": "2022-08-22~2022-08-28",
+      "startTime": "2022-08-27T14:00:00.000Z",
+      "endTime": "2022-08-27T14:40:00.000Z",
+      "day": "Saturday",
       "id": 1
     },
 ```
